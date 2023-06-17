@@ -23,9 +23,8 @@ public class Spin extends Module {
 
     @EventHandler
     private void onTick(TickEvent.Post event) {
-        currentYaw += 2.0f; // Adjust the rotation speed as desired
+        currentYaw += 2.0f;
 
-        // Reset the yaw angle if it reaches 360 degrees
         if (currentYaw >= 360.0f) {
             currentYaw = 0.0f;
         }
