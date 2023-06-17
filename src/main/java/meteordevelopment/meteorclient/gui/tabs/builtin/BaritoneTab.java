@@ -31,7 +31,7 @@ public class BaritoneTab extends Tab {
     private static Map<String, String> descriptions;
 
     public BaritoneTab() {
-        super("Baritone");
+        super("Pathfinder");
     }
 
     @SuppressWarnings("unchecked")

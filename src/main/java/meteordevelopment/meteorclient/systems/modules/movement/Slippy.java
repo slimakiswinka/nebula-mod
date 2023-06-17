@@ -34,6 +34,6 @@ public class Slippy extends Module {
     );
 
     public Slippy() {
-        super(Categories.Movement, "slippy", "Changes the base friction level of blocks.");
+        super(Categories.Movement, "auto-drift", "Drift Simulator");
     }
 }

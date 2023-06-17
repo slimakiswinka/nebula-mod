@@ -106,7 +106,7 @@ public class Quiver extends Module {
     private final BlockPos.Mutable testPos = new BlockPos.Mutable();
 
     public Quiver() {
-        super(Categories.Combat, "quiver", "Shoots arrows at yourself.");
+        super(Categories.Combat, "self-hit", "Shoots arrows at yourself.");
     }
 
     @Override

@@ -46,7 +46,7 @@ public class AntiHunger extends Module {
     private boolean ignorePacket;
 
     public AntiHunger() {
-        super(Categories.Player, "anti-hunger", "Reduces (does NOT remove) hunger consumption.");
+        super(Categories.Player, "fat", "Reduces (does NOT remove) hunger consumption.");
     }
 
     @Override

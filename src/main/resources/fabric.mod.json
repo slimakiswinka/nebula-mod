@@ -1,19 +1,15 @@
 {
   "schemaVersion": 1,
-  "name": "Meteor Client",
+  "name": "Nebula",
   "id": "meteor-client",
   "version": "${version}",
-  "description": "Based utility mod.",
+  "description": "Mod for minecraft for certified chads",
   "authors": [
-    "MineGame159",
-    "squidoodly",
-    "seasnail"
+    "Me + all people i stole from"
   ],
   "contact": {
-    "homepage": "https://meteorclient.com",
-    "issues": "https://github.com/MeteorDevelopment/meteor-client/issues",
-    "sources": "https://github.com/MeteorDevelopment/meteor-client",
-    "discord": "https://meteorclient.com/discord"
+    "sources": "https://github.com/slimakiswinka/nebula-mod",
+    "discord": "https://discord.gg/2J795y9QVM"
   },
   "license": "GPL-3.0",
   "icon": "assets/meteor-client/icon.png",
@@ -41,14 +37,17 @@
     "meteor-client:commit": "${commit}",
     "modmenu": {
       "links": {
-        "modmenu.discord": "https://meteorclient.com/discord"
+        "modmenu.discord": "https://discord.gg/2J795y9QVM"
       }
     }
   },
   "depends": {
+    "fabricloader": ">=0.14.21",
     "java": ">=17",
-    "minecraft": [ "1.20", "1.20.1" ],
-    "fabricloader": ">=0.14.21"
+    "minecraft": [
+      "1.20",
+      "1.20.1"
+    ]
   },
   "breaks": {
     "optifabric": "*",

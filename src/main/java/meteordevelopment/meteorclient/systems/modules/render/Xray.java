@@ -75,7 +75,7 @@ public class Xray extends Module {
 
     private final Setting<Boolean> exposedOnly = sgGeneral.add(new BoolSetting.Builder()
         .name("exposed-only")
-        .description("Show only exposed ores.")
+        .description("Show only exposed ores. (buggy af)")
         .defaultValue(false)
         .onChanged(onChanged -> {
             if (isActive()) mc.worldRenderer.reload();
@@ -83,7 +83,7 @@ public class Xray extends Module {
         .build());
 
     public Xray() {
-        super(Categories.Render, "xray", "Only renders specified blocks. Good for mining.");
+        super(Categories.Render, "xray", "Allows you to smell ores.");
     }
 
     @Override

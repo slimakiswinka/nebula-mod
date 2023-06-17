@@ -23,7 +23,7 @@ public class MessageAura extends Module {
     private final Setting<String> message = sgGeneral.add(new StringSetting.Builder()
         .name("message")
         .description("The specified message sent to the player.")
-        .defaultValue("Meteor on Crack!")
+        .defaultValue("omgomgomg")
         .build()
     );
 
@@ -35,7 +35,7 @@ public class MessageAura extends Module {
     );
 
     public MessageAura() {
-        super(Categories.Misc, "message-aura", "Sends a specified message to any player that enters render distance.");
+        super(Categories.Misc, "hello-aura", "Sends a specified message to any player that enters render distance.");
     }
 
     @EventHandler

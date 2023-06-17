@@ -96,7 +96,7 @@ public class VeinMiner extends Module {
 
     private final Setting<Boolean> swingHand = sgRender.add(new BoolSetting.Builder()
         .name("swing-hand")
-        .description("Swing hand client-side.")
+        .description("Swing hand 4u.")
         .defaultValue(true)
         .build()
     );
@@ -136,7 +136,7 @@ public class VeinMiner extends Module {
     private int tick = 0;
 
     public VeinMiner() {
-        super(Categories.World, "vein-miner", "Mines all nearby blocks with this type");
+        super(Categories.World, "vein-miner", "VeinMiner but client-side");
     }
 
     @Override

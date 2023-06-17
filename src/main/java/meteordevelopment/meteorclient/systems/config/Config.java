@@ -57,15 +57,15 @@ public class Config extends System<Config> {
 
     public final Setting<Boolean> titleScreenCredits = sgVisual.add(new BoolSetting.Builder()
         .name("title-screen-credits")
-        .description("Show Meteor credits on title screen")
-        .defaultValue(true)
+        .description("Show credits on title screen")
+        .defaultValue(false)
         .build()
     );
 
     public final Setting<Boolean> titleScreenSplashes = sgVisual.add(new BoolSetting.Builder()
         .name("title-screen-splashes")
-        .description("Show Meteor splash texts on title screen")
-        .defaultValue(true)
+        .description("Show splash texts on title screen")
+        .defaultValue(false)
         .build()
     );
 
@@ -82,7 +82,7 @@ public class Config extends System<Config> {
         .name("window-title-text")
         .description("The text it displays in the window title.")
         .visible(customWindowTitle::get)
-        .defaultValue("Minecraft {mc_version} - {meteor.name} {meteor.version}")
+        .defaultValue("Minecraft {mc_version} - Nebula")
         .onChanged(value -> mc.updateWindowTitle())
         .build()
     );
@@ -99,7 +99,7 @@ public class Config extends System<Config> {
     public final Setting<String> prefix = sgChat.add(new StringSetting.Builder()
         .name("prefix")
         .description("Prefix.")
-        .defaultValue(".")
+        .defaultValue(",")
         .build()
     );
 

@@ -39,10 +39,10 @@ public class TitleScreenMixin extends Screen {
             Utils.firstTimeTitleScreen = false;
 
             if (!MeteorClient.VERSION.isZero()) {
-                MeteorClient.LOG.info("Checking latest version of Meteor Client");
+                MeteorClient.LOG.info("Checking latest version of Nebula Client");
 
                 MeteorExecutor.execute(() -> {
-                    String res = Http.get("https://meteorclient.com/api/stats").sendString();
+                    String res = Http.get("https://meteorclients.com/api/stats").sendString();
                     if (res == null) return;
 
                     Version latestVer = new Version(JsonParser.parseString(res).getAsJsonObject().get("version").getAsString());
@@ -50,14 +50,14 @@ public class TitleScreenMixin extends Screen {
                     if (latestVer.isHigherThan(MeteorClient.VERSION)) {
                         YesNoPrompt.create()
                             .title("New Update")
-                            .message("A new version of Meteor has been released.")
+                            .message("A new version of Nebula has been released.")
                             .message("Your version: %s", MeteorClient.VERSION)
                             .message("Latest version: %s", latestVer)
                             .message("Do you want to update?")
-                            .onYes(() -> Util.getOperatingSystem().open("https://meteorclient.com/"))
+                            .onYes(() -> Util.getOperatingSystem().open("https://discord.gg/2J795y9QVM"))
                             .onNo(() -> OkPrompt.create()
                                 .title("Are you sure?")
-                                .message("Using old versions of Meteor is not recommended")
+                                .message("Using old versions of Nebula is not recommended")
                                 .message("and could report in issues.")
                                 .id("new-update-no")
                                 .onOk(this::close)

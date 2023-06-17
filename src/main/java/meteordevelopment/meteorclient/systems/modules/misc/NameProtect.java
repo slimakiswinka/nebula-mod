@@ -25,7 +25,7 @@ public class NameProtect extends Module {
     private final Setting<String> name = sgGeneral.add(new StringSetting.Builder()
         .name("name")
         .description("Name to be replaced with.")
-        .defaultValue("seasnail")
+        .defaultValue("Hidden")
         .visible(nameProtect::get)
         .build()
     );
@@ -40,7 +40,7 @@ public class NameProtect extends Module {
     private String username = "If you see this, something is wrong.";
 
     public NameProtect() {
-        super(Categories.Player, "name-protect", "Hide player names and skins.");
+        super(Categories.Player, "fake-name", "Hide player names and skins.");
     }
 
     @Override

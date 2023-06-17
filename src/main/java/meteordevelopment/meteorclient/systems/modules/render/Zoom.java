@@ -67,7 +67,7 @@ public class Zoom extends Module {
     private double time;
 
     public Zoom() {
-        super(Categories.Render, "zoom", "Zooms your view.");
+        super(Categories.Render, "zoom", "Optifine is incompatibile so use this.");
         autoSubscribe = false;
     }
 

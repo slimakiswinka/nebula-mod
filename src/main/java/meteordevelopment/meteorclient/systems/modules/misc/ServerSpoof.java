@@ -67,7 +67,7 @@ public class ServerSpoof extends Module {
     );
 
     public ServerSpoof() {
-        super(Categories.Misc, "server-spoof", "Spoof client brand, resource pack and channels.");
+        super(Categories.Misc, "protocol-bypass", "Spoof client brand, resource pack and channels.");
 
         MeteorClient.EVENT_BUS.subscribe(new Listener());
     }

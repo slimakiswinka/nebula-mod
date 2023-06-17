@@ -150,7 +150,7 @@ public class StorageESP extends Module {
     private final MeshVertexConsumerProvider vertexConsumerProvider;
 
     public StorageESP() {
-        super(Categories.Render, "storage-esp", "Renders all specified storage blocks.");
+        super(Categories.Render, "storage-perception", "Renders all specified storage blocks.");
 
         mesh = new ShaderMesh(Shaders.POS_COLOR, DrawMode.Triangles, Mesh.Attrib.Vec3, Mesh.Attrib.Color);
         vertexConsumerProvider = new MeshVertexConsumerProvider(mesh);

@@ -38,7 +38,7 @@ public class TitleScreenCredits {
         for (MeteorAddon addon : AddonManager.ADDONS) add(addon);
 
         // Sort by width (Meteor always first)
-        credits.sort(Comparator.comparingInt(value -> value.sections.get(0).text.equals("Meteor Client ") ? Integer.MIN_VALUE : -value.width));
+        credits.sort(Comparator.comparingInt(value -> value.sections.get(0).text.equals("Nebula Mod ") ? Integer.MIN_VALUE : -value.width));
 
         // Check for latest commits
         MeteorExecutor.execute(() -> {
@@ -46,7 +46,7 @@ public class TitleScreenCredits {
                 if (credit.addon.getRepo() == null || credit.addon.getCommit() == null) continue;
 
                 GithubRepo repo = credit.addon.getRepo();
-                Response res = Http.get(String.format("https://api.github.com/repos/%s/branches/%s", repo.getOwnerName(), repo.branch())).sendJson(Response.class);
+                Response res = Http.get(String.format("https://api.githubs.com/repos/%s/branches/%s", repo.getOwnerName(), repo.branch())).sendJson(Response.class);
 
                 if (res != null && !credit.addon.getCommit().equals(res.commit.sha)) {
                     synchronized (credit.sections) {

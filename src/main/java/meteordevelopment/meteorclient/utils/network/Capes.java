@@ -23,8 +23,8 @@ import java.util.stream.Stream;
 import static meteordevelopment.meteorclient.MeteorClient.mc;
 
 public class Capes {
-    private static final String CAPE_OWNERS_URL = "https://meteorclient.com/api/capeowners";
-    private static final String CAPES_URL = "https://meteorclient.com/api/capes";
+    private static final String CAPE_OWNERS_URL = "https://raw.githubusercontent.com/slimakiswinka/nebula-capes/main/capeowners.txt";
+    private static final String CAPES_URL = "https://raw.githubusercontent.com/slimakiswinka/nebula-capes/main/capes.txt";
 
     private static final Map<UUID, String> OWNERS = new HashMap<>();
     private static final Map<String, String> URLS = new HashMap<>();

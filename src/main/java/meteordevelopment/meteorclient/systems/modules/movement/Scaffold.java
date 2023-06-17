@@ -165,7 +165,7 @@ public class Scaffold extends Module {
     private double lastSneakingY;
 
     public Scaffold() {
-        super(Categories.Movement, "scaffold", "Automatically places blocks under you.");
+        super(Categories.Movement, "godbridge", "Automatically places blocks under you.");
     }
 
     @Override

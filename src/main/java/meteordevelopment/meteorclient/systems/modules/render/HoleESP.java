@@ -164,7 +164,7 @@ public class HoleESP extends Module {
     private final byte NULL = 0;
 
     public HoleESP() {
-        super(Categories.Render, "hole-esp", "Displays holes that you will take less damage in.");
+        super(Categories.Render, "hole-esp", "Holes. Yes");
     }
 
     @EventHandler

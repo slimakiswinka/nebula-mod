@@ -95,7 +95,7 @@ public class NoFall extends Module {
     private int preBaritoneFallHeight;
 
     public NoFall() {
-        super(Categories.Movement, "no-fall", "Attempts to prevent you from taking fall damage.");
+        super(Categories.Movement, "cat", "Attempts to prevent you from taking fall damage.");
     }
 
     @Override
