@@ -145,13 +145,13 @@ public class DiscordPresence extends Module {
 
     @Override
     public void onActivate() {
-        DiscordIPC.start(835240968533049424L, null);
+        DiscordIPC.start(1148234974282125362L, null);
 
         rpc.setStart(System.currentTimeMillis() / 1000L);
 
         String largeText = "%s %s".formatted(MeteorClient.NAME, MeteorClient.VERSION);
         if (!MeteorClient.DEV_BUILD.isEmpty()) largeText += " Dev Build: " + MeteorClient.DEV_BUILD;
-        rpc.setLargeImage("meteor_client", largeText);
+        rpc.setLargeImage("icon", largeText);
 
         currentSmallImage = SmallImage.Snail;
 
@@ -295,8 +295,7 @@ public class DiscordPresence extends Module {
     }
 
     private enum SmallImage {
-        MineGame("minegame", "MineGame159"),
-        Snail("seasnail", "seasnail8169");
+        Snail("icon", "Nebula");
 
         private final String key, text;
 
@@ -310,8 +309,7 @@ public class DiscordPresence extends Module {
         }
 
         SmallImage next() {
-            if (this == MineGame) return Snail;
-            return MineGame;
+            return Snail;
         }
     }
 }
