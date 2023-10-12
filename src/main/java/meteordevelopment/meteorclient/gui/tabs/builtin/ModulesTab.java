@@ -13,7 +13,7 @@ import net.minecraft.client.gui.screen.Screen;
 
 public class ModulesTab extends Tab {
     public ModulesTab() {
-        super("Shit");
+        super("Features");
     }
 
     @Override
