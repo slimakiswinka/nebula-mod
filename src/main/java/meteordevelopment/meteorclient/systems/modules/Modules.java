@@ -16,6 +16,7 @@ import meteordevelopment.meteorclient.events.meteor.ActiveModulesChangedEvent;
 import meteordevelopment.meteorclient.events.meteor.KeyEvent;
 import meteordevelopment.meteorclient.events.meteor.ModuleBindChangedEvent;
 import meteordevelopment.meteorclient.events.meteor.MouseButtonEvent;
+import meteordevelopment.meteorclient.pathing.BaritoneUtils;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.meteorclient.systems.System;
@@ -530,9 +531,7 @@ public class Modules extends System<Modules> {
         add(new BuildHeight());
         add(new EChestFarmer());
         add(new EndermanLook());
-        add(new Excavator());
         add(new Flamethrower());
-        add(new InfinityMiner());
         add(new LiquidFiller());
         add(new MountBypass());
         add(new NoGhostBlocks());
@@ -542,6 +541,11 @@ public class Modules extends System<Modules> {
         add(new Timer());
         add(new VeinMiner());
         add(new HighwayBuilder());
+
+        if (BaritoneUtils.IS_AVAILABLE) {
+            add(new Excavator());
+            add(new InfinityMiner());
+        }
     }
 
     private void initMisc() {
