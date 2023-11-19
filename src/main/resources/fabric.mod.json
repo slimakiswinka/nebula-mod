@@ -5,7 +5,8 @@
   "version": "${version}",
   "description": "Mod for minecraft for certified chads",
   "authors": [
-    "Me + all people i stole from"
+    "Me",
+    "Meteor Devs"
   ],
   "contact": {
     "sources": "https://github.com/slimakiswinka/nebula-mod",
