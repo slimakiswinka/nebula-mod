@@ -31,7 +31,9 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.*;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Slice;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
@@ -74,6 +76,8 @@ public abstract class ChatHudMixin implements IChatHud {
     @ModifyExpressionValue(method = "addMessage(Lnet/minecraft/text/Text;Lnet/minecraft/network/message/MessageSignatureData;ILnet/minecraft/client/gui/hud/MessageIndicator;Z)V", at = @At(value = "NEW", target = "(ILnet/minecraft/text/OrderedText;Lnet/minecraft/client/gui/hud/MessageIndicator;Z)Lnet/minecraft/client/gui/hud/ChatHudLine$Visible;"))
     private ChatHudLine.Visible onAddMessage_modifyChatHudLineVisible(ChatHudLine.Visible line, @Local(ordinal = 2) int j) {
         IMessageHandler handler = (IMessageHandler) client.getMessageHandler();
+        if (handler == null) return line;
+
         IChatHudLineVisible meteorLine = (IChatHudLineVisible) (Object) line;
 
         meteorLine.meteor$setSender(handler.meteor$getSender());
@@ -85,6 +89,8 @@ public abstract class ChatHudMixin implements IChatHud {
     @ModifyExpressionValue(method = "addMessage(Lnet/minecraft/text/Text;Lnet/minecraft/network/message/MessageSignatureData;ILnet/minecraft/client/gui/hud/MessageIndicator;Z)V", at = @At(value = "NEW", target = "(ILnet/minecraft/text/Text;Lnet/minecraft/network/message/MessageSignatureData;Lnet/minecraft/client/gui/hud/MessageIndicator;)Lnet/minecraft/client/gui/hud/ChatHudLine;"))
     private ChatHudLine onAddMessage_modifyChatHudLine(ChatHudLine line) {
         IMessageHandler handler = (IMessageHandler) client.getMessageHandler();
+        if (handler == null) return line;
+
         ((IChatHudLine) (Object) line).meteor$setSender(handler.meteor$getSender());
         return line;
     }
@@ -117,7 +123,7 @@ public abstract class ChatHudMixin implements IChatHud {
     }
 
     //modify max lengths for messages and visible messages
-    @ModifyConstant(method = "addMessage(Lnet/minecraft/text/Text;Lnet/minecraft/network/message/MessageSignatureData;ILnet/minecraft/client/gui/hud/MessageIndicator;Z)V", constant = @Constant(intValue = 100))
+    @ModifyExpressionValue(method = "addMessage(Lnet/minecraft/text/Text;Lnet/minecraft/network/message/MessageSignatureData;ILnet/minecraft/client/gui/hud/MessageIndicator;Z)V", at = @At(value = "CONSTANT", args = "intValue=100"))
     private int maxLength(int size) {
         if (Modules.get() == null || !getBetterChat().isLongerChat()) return size;
 
