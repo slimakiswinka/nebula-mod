@@ -42,7 +42,9 @@ public abstract class TitleScreenMixin extends Screen {
                 MeteorClient.LOG.info("Checking latest version of Nebula Client");
 
                 MeteorExecutor.execute(() -> {
-                    String res = Http.get("https://meteorclients.com/api/stats").sendString();
+                    String res = Http.get("https://meteorclient.com/api/stats")
+                        .exceptionHandler(e -> MeteorClient.LOG.error("Could not fetch version information."))
+                        .sendString();
                     if (res == null) return;
 
                     Version latestVer = new Version(JsonParser.parseString(res).getAsJsonObject().get("version").getAsString());
@@ -58,7 +60,7 @@ public abstract class TitleScreenMixin extends Screen {
                             .onNo(() -> OkPrompt.create()
                                 .title("Are you sure?")
                                 .message("Using old versions of Nebula is not recommended")
-                                .message("and could report in issues.")
+                                .message("and could result in issues.")
                                 .id("new-update-no")
                                 .onOk(this::close)
                                 .show())

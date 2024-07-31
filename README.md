@@ -5,7 +5,6 @@
 <h1 align="center">Nebula</h1>
 <p align="center">Mod for gigachads.</p>
 
-
 ## Usage
 
 ### Building
