@@ -5,11 +5,11 @@
 
 package meteordevelopment.meteorclient.mixin;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import meteordevelopment.meteorclient.MeteorClient;
 import meteordevelopment.meteorclient.systems.config.Config;
 import meteordevelopment.meteorclient.utils.Utils;
-import meteordevelopment.meteorclient.utils.misc.Version;
 import meteordevelopment.meteorclient.utils.network.Http;
 import meteordevelopment.meteorclient.utils.network.MeteorExecutor;
 import meteordevelopment.meteorclient.utils.player.TitleScreenCredits;
@@ -47,14 +47,19 @@ public abstract class TitleScreenMixin extends Screen {
                         .sendString();
                     if (res == null) return;
 
-                    Version latestVer = new Version(JsonParser.parseString(res).getAsJsonObject().get("version").getAsString());
+                    JsonElement latestBuild = JsonParser.parseString(res).getAsJsonObject()
+                        .getAsJsonObject("builds")
+                        .get(MeteorClient.VERSION.toString());
 
-                    if (latestVer.isHigherThan(MeteorClient.VERSION)) {
+                    if (latestBuild == null)
+                        return;
+
+                    if (latestBuild.getAsInt() > Integer.parseInt(MeteorClient.BUILD_NUMBER)) {
                         YesNoPrompt.create()
                             .title("New Update")
                             .message("A new version of Nebula has been released.")
-                            .message("Your version: %s", MeteorClient.VERSION)
-                            .message("Latest version: %s", latestVer)
+                            .message("Your version: %s", MeteorClient.VERSION + "-" + MeteorClient.BUILD_NUMBER)
+                            .message("Latest version: %s", MeteorClient.VERSION + "-" + latestBuild.getAsInt())
                             .message("Do you want to update?")
                             .onYes(() -> Util.getOperatingSystem().open("https://discord.gg/2J795y9QVM"))
                             .onNo(() -> OkPrompt.create()
