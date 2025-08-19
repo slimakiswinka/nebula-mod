@@ -3,10 +3,10 @@
   "name": "Nebula",
   "id": "meteor-client",
   "version": "${version}",
-  "description": "Mod for minecraft for certified chads",
+  "description": "Big mod for the block game",
   "authors": [
-    "Me",
-    "Meteor Devs"
+    "slima",
+    "@MeteorDevelopment"
   ],
   "contact": {
     "sources": "https://github.com/slimakiswinka/nebula-mod",
